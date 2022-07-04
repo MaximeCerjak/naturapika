@@ -1,0 +1,1669 @@
+/*
+*
+******************* GENERAL (HEADER, TITRE, TYPO, COULEUR, MENU, NAV) ****************
+*
+*/
+
+:root{
+    --headColor : #BAA55F;
+    --bgColor : #F5FFD0;
+    --hColorTitle : #F5FFD0;
+    --orangeTitle : #D66D23;
+    --darkBrown : #5E5D32;
+    --darkBrownAdmin : #454424;
+    --greenGlobal : #9CC773;
+    --shadowCard : 2px 40px 40px 2px rgba(0, 0, 0, .2);
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body, html {
+    padding : 0;
+    margin : 0;
+    background-color : var(--bgColor);
+}
+
+.para-global {
+    margin : 30px auto;
+}
+
+.xdebug-error{
+    position : relative;
+    z-index: 1000 !important;
+}
+
+.xdebug-var-dump {
+    position : relative;
+    z-index : 1000 !important;
+    background-color : white;
+}
+
+
+
+/************************************* - HEADER - *******************************************/
+
+header {
+    background-color : var(--headColor);
+    width : 100%;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    text-align : center;
+    padding : 8%;
+    margin-bottom : 50px;
+}
+
+.globalHeader {
+    width : 100%;
+    position : absolute;
+    left : 0;
+    color : var(--bgColor);
+}
+
+.globalHeader.headFlowerHome {
+    top : 105px;
+}
+
+.globalHeader.headFlowerGlobal {
+    top : 150px;
+}
+
+.globalHeader.headFruits {
+    top : 120px;
+}
+
+
+/************************************* - TITRE - *******************************************/
+
+h1, h2 {
+    font-family : 'Lobster', cursive;
+}
+
+h1 {
+    color : #F5FFD0;
+    font-size : 1.6rem;
+    letter-spacing : 4px;
+    margin : 100px auto 50px;
+}
+
+h2 {
+    color : var(--orangeTitle);
+    font-size : 1.6rem;
+    margin : 100px auto 20px;
+}
+
+
+
+/************************************* - MENU - NAV - *******************************************/
+
+.menuFlower {
+    width : 28%;
+    position : fixed;
+    top : -7px;
+    left:22%;
+    z-index:999;
+}
+
+.flower {
+    width:15%;
+    position : fixed;
+    top : -.65%;
+    left: 28.7%;
+    z-index:999;
+}
+
+
+
+@keyframes turn {
+    from {
+        transform : rotate(0deg)
+    }
+    
+    to {
+        transform : rotate(360deg);
+    }
+}
+
+.flowerRotate {
+    animation : turn linear 5s infinite;
+}
+
+.menuModal {
+    width : 65%;
+    position : fixed;
+    z-index : 998;
+    top : -250vh;
+    transition : top 0.8s ease-in-out;
+    left : 15%;
+    background-color : var(--bgColor);
+    border : 10px solid var(--greenGlobal);
+    border-radius : 25px;
+    padding : 150px 20px 20px;
+    text-align : center;
+    cursor : pointer;
+}
+
+.menuModal.transformMod {
+    opacity : 100;
+    top : 0vh;
+}
+
+.menuModal>ul li {
+    list-style : none;
+    color : var(--darkBrown);
+    font-size : 1.4rem;
+    margin : 20px auto;
+    font-family : "Plus Jakarta Sans", sans-serif;
+    font-weight : bold;
+}
+
+.menuModal>ul li.welcome {
+    color : var(--greenGlobal);
+}
+
+.menuModal>ul li:hover {
+    background-color : var(--darkBrown);
+    color : var(--bgColor);
+    padding : 5px;
+    border-radius : 10px;
+}
+
+.exit-io {
+    position : absolute;
+    right : 20px;
+    top : 20px;
+    width : 100px;
+}
+
+.exit-door {
+    position : absolute;
+    right : 0;
+    top : 0;
+    width : 200px;
+    height : 200px;
+}
+
+.fixedNav {
+    position : fixed;
+    bottom : 0;
+    z-index : 2;
+    width : 100%;
+}
+
+.homeRoute, .userRoute, .contactRoute {
+    width : 120px;
+    height : 120px;
+    position : fixed;
+    bottom : 4%;
+    z-index : 5;    
+}
+
+.homeRoute {
+    left : 22%;
+}
+
+.contactRoute {
+    left : 44%;
+}
+
+.userRoute {
+    left : 66%;
+}
+
+
+
+/*============================= - FORMULAIRES - ===================================*/
+
+input[type='text'],
+input[type='number'],
+textarea, 
+form,
+option,
+select:focus, 
+input[type='text']:focus,
+input[type='number']:focus,
+textarea:focus, 
+form:focus {
+  font-size: 20px;
+}
+
+.sign-in {
+    color : #E08147;
+    margin : 10px auto;
+    width : fit-content;
+    text-decoration : underline;
+}
+
+.form {
+    width : 100%;
+    margin : 50px auto;
+    background-color : var(--bgColor);
+    border : 10px solid var(--greenGlobal);
+    border-radius : 25px;
+    padding : 20px 20px 0;
+    font-family : "Plus Jakarta Sans", sans-serif;
+    color : var(--darkBrown);
+    text-align : start;
+}
+
+.input-block{
+    margin : 25px;
+}
+
+.input {
+    width : 100%; 
+    padding : 10px;
+}
+
+
+.txtarea {
+    height : 400px;
+}
+
+
+.form-block {
+    display : none;
+    position : fixed;
+    width : 70%;
+    top : 15%;
+    left : 15%;
+    background-color : var(--bgColor);
+    border : 10px solid var(--greenGlobal);
+    border-radius : 25px;
+    padding : 20px 20px 0;
+    font-family : "Plus Jakarta Sans", sans-serif;
+    color : var(--darkBrown);
+}
+
+
+.input-log {
+    border : 1px solid var(--darkBrown);
+    color : var(--darkBrown);
+}
+
+.btn-form {
+    position : relative;
+    font-size : 2rem;
+    color : var(--bgColor);
+    padding : 10px 16px;
+    margin : 20px auto;
+    width : 25%;
+    left : 36.5%;
+    background-color : var(--greenGlobal);
+    border : 1px solid var(--greenGlobal);
+    border-radius : 25px;
+}
+
+.close-form {
+    position : absolute;
+    width : 100px;
+    left : 93%;
+    top : -6.5%;
+}
+
+.close-log {
+    top : -12%;
+}
+
+.form-active {
+    display : block;
+}
+
+.error {
+    position : absolute;
+    color : red;
+    font-size : 1.4rem;
+    background-color : var(--bgColor);
+    border : 1px solid var(--darkBrown);
+    padding : 5px;
+    box-shadow : 10px 10px 10px rgba(0, 0, 0, .2);
+}
+
+.danger-io  {
+    width : 35px;
+}
+
+.hidden {
+    display : none;
+}
+
+.asterix {
+    color : red;
+}
+
+.disconnect {
+    text-align : center;
+    font-size : 2rem;
+    margin : 40px auto;
+    color : var(--darkBrown);
+}
+
+.disconnect a:visited {
+    color : var(--darkBrown);
+}
+
+.success {
+    margin : 15px auto;
+    width : 70%;
+    background-color : var(--bgColor);
+    border : 10px solid var(--greenGlobal);
+    border-radius : 25px;
+    padding : 20px 20px;
+    font-size : 1rem;
+    font-family : "Plus Jakarta Sans", sans-serif;
+    color : var(--darkBrown);  
+    text-align : center;
+}
+
+.fail {
+    margin : 15px auto;
+    width : 70%;
+    background-color : var(--bgColor);
+    border : 10px solid red;
+    border-radius : 25px;
+    padding : 20px 20px;
+    font-size : 1rem;
+    font-family : "Plus Jakarta Sans", sans-serif;
+    color : var(--darkBrown);  
+    text-align : center;
+}
+
+
+
+
+/*
+*
+************************************ - MAIN-GLOBAL - ******************************************
+*
+*/
+
+.container {
+    width : 80vw;
+    font-family : "Plus Jakarta Sans", sans-serif;
+    color : var(--darkBrown);
+    margin : auto;
+}
+
+.container.global {
+    margin : 250px auto 0;
+    text-align : justify;
+    overflow : auto;
+}
+
+.btn-more {
+    font-size: 3rem;
+    padding: 35px;
+    background-color: var(--greenGlobal);
+    margin : 100px auto;
+    border-radius : 25px;
+    border : 1px solid var(--greenGlobal);
+}
+
+.btn-food {
+    width : 100%;
+    text-align : center;
+}
+
+.btn-more a {
+    text-decoration : none;
+    color: var(--bgColor);
+    font-weight : bolder;
+}
+
+
+
+
+/*
+*
+************************************ - MAIN-HOME - ******************************************
+*
+*/
+
+.container.home {
+    text-align : center;
+    margin : 30px auto;
+    font-size : 1.8rem;
+}
+
+.block-profil-picture {
+    width : 485px;
+    margin : 0 auto 100px auto;
+    
+}
+
+.profil-picture {
+    width : 100%;
+    border-radius : 50%;
+}
+
+.block-picture {
+    width : 75vw;
+    margin : 100px auto;
+}
+
+.picture-naturo {
+    width : 100%;
+}
+
+.profil-card {
+    width : 80%;
+    margin : 100px auto;
+    text-align : center;
+    display : flex;
+    flex-direction : column;
+    align-items : center;
+    font-size : 2rem;
+}
+
+.card-title {
+    font-size : 5rem;
+}
+
+.profil-card figure q {
+    display : block;
+}
+
+.block-draw-profil {
+    width : 100%;
+}
+
+.draw-profil {
+    width : 60%;
+    border-radius : 30%;
+}
+
+.schema-picture {
+    width : 100%;
+}
+
+.picture-tools {
+    width : 100%;
+}
+
+.process-list {
+    list-style : inside;
+    margin : 30px auto 50px;
+}
+
+.irido-list {
+    text-align : start;
+    margin : 15px 0px 15px 50px;
+}
+
+/*
+************************************ - MAIN-GALERY - ******************************************
+*/
+
+.galery {
+    display : flex;
+    flex-direction : column;
+    padding-top : 50px;
+    align-items : center;
+    text-align : center;
+}
+
+
+
+/*
+************************************ - MAIN-LIBRARY - ******************************************
+*/
+
+.medical-library {
+    text-align : center;    
+}
+
+
+.container.carousel{
+    width : 80vw;
+    height : 80vh;
+}
+
+.galery-link {
+    text-decoration : none;
+    color : var(--darkBrown);
+    font-size : 3rem;
+    padding : 10px;
+    font-weight : bold;
+    border : 5px solid var(--darkBrown);
+    border-radius : 25px;
+}
+
+
+/*********** - PLANT-CARDS - *************/
+
+.card {
+    background-color : var(--headColor);
+    padding : 50px;
+    border : 5px solid var(--darkBrown);
+    border-radius : 25px;
+    text-align : center;
+    box-shadow : var(--shadowCard);
+    flex-direction : column;
+    justify-content : space-between;
+}
+
+.card-intro {
+    display : flex;
+    width : 65vw;
+    margin : 200px 75px;
+    position : absolute;
+    top : 780px;
+    font-size : 2.5rem;
+    font-weight : bold;
+    z-index : 1;
+}
+
+.card-intro p {
+    margin : 20px 0;
+}
+
+.card-plant {
+    position : absolute;
+    width : 70vw;
+    height : 62.5vh;
+    margin : 200px 5vw;
+    display : none;
+    font-size : 2rem;
+    font-weight : bold;
+    z-index : 2;
+}
+
+.display-card {
+    display : flex;
+}
+
+
+.block-card-picture {
+    width : 580px;
+    margin : 0 30px;
+}
+
+.card-picture {
+    width : 100%;
+    border-radius : 50px;
+    border : 2px solid var(--darkBrown);
+}
+
+.btn-card {
+    margin : 0 80px;
+    padding : 10px;
+    color : var(--bgColor);
+    background-color: var(--greenGlobal);
+    border-radius : 25px;
+    border : 3px solid var(--darkBrown);
+    font-size : 2rem;
+    font-weight : bold;
+}
+
+.card-link {
+    text-decoration : none;
+    color : var(--bgColor);
+}
+
+.title-name {
+    font-size : 3.6rem;
+    margin : 0;
+}
+
+.title-sc-name {
+    font-style : italic;
+    color : var(--bgColor);
+    font-size : 2.3rem;
+}
+
+.btn-arrow {
+    position : absolute;
+    top : 1300px;
+    right : 3%;
+    cursor : pointer;
+}
+
+#arrow-left {
+    transform : rotate(180deg);
+    left : 3%;
+}
+
+
+
+/***********RECIPE-CARDS*************/
+
+.card-recipe {
+    width : 70vw;
+    height : 62.5vh;
+    margin : 200px 5vw;
+    font-size : 2rem;
+    font-weight : bold;
+    display : flex;
+    align-items : center;
+    justify-content : space-between;
+}
+
+.regime-icon {
+    position : relative;
+    width : 60px;
+}
+
+.regime-io {
+    width : 100%;
+}
+
+.intro-food {
+    font-size : 1.2rem;
+}
+
+/************* - NAV-RECIPE - ************/
+
+.recipe-nav {
+    width : 60%;
+    margin : 30px auto;
+    font-size : 3.5rem;
+    font-weight : bold;
+    font-family : "Plus Jakarta Sans", sans-serif;
+}
+
+.recipe-nav ul {
+    display : flex;
+    text-align : center;
+    flex-direction : column;
+    justify-content : space-around;
+    align-items : center;
+    list-style-image : url("../images/site/plus_vert.svg");
+}
+
+.separator {
+    margin : 15px;
+    width: 40px;
+    height: 8px;
+    background: #5E5D32;
+    border-radius: 30px;
+}
+
+.accord-option {
+    display : none;
+}
+
+.active-option {
+    display : block;
+}
+
+.accord-option ul {
+    list-style : none;
+    font-size : 1.8rem;
+}
+
+.accord-option ul li a {
+    text-decoration : none;
+    color : var(--darkBrown);
+}
+
+
+
+/*
+************************************ - MAIN-PlantInfo - ******************************************
+*/
+
+.plantInfo {
+    padding-top : 150px;
+    text-align : justify;
+}
+
+.picture-plantinfo {
+    margin : 50px auto;
+}
+
+.title2-info {
+    font-size : 4rem;
+}
+
+.title3-info, .title4-info {
+    font-style : italic;
+}
+
+.title2-info, .title3-info, .title4-info {
+    margin : 10px auto;
+    text-align : center;
+}
+
+.title4-info {
+    margin-bottom : 180px;
+}
+
+.title5-info {
+    font-size : 1.3rem;
+    margin : 120px 0 50px;
+}
+
+.use-el {
+    text-decoration : underline;
+}
+
+
+
+/*
+************************************ - CANVAS IRIS - ******************************************
+*/
+
+.canvas-iris {
+    position : relative;
+    width : 784px;
+    height : 784px;
+}
+
+.picture-iris {
+    width : 100%;
+}
+
+.iris-el {
+    position : absolute;
+    border : 1px solid black;
+    text-align : center;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    font-weight : bold;
+    color : black;
+    opacity : 0;
+    transition : opacity .5s ease-in-out;
+}
+
+.m-o:hover, .i-r:hover, .e-r:hover {
+    opacity : 1;
+}
+
+
+.legend-active {
+    opacity : 1;
+}
+
+.iris-legend {
+    width : 100%;
+    border : 1px solid var(--darkBrown);
+    margin : 50px auto;
+    display : flex;
+    align-items : center;
+    justify-content : space-around;
+    flex-wrap : wrap;
+}
+
+.legend-block {
+    padding : 50px;
+    margin : 0;
+    display : flex;
+    flex-direction : column;
+    align-items : center;
+    justify-content : center;
+    text-align : center;
+    font-weight : bold;
+    font-size : 1.2rem;
+    border : 1px solid var(--darkBrown);
+}
+
+.legend-el {
+    width : 40px;
+    height : 40px;
+    border-radius : 50%;
+}
+.gastric-ring {
+    background-color : yellow;
+}
+
+.intestinal-ring {
+    background-color: #B3945F;
+}
+
+.lymph-ring {
+    background-color : #F0A18E;
+}
+
+.skin-ring {
+    background-color : grey;
+}
+
+.colar-ring {
+    background-color : #161FE0;
+}
+
+.endocrine-ring {
+    background-color : #7DD752;
+}
+
+.main-organs {
+    background-color : #63D6E0;
+}
+
+/*=============== PUPILLE ZONE GASTRIQUE et INTESTINALE ================*/
+
+.iris-right {
+    position : absolute;
+    width : 100%;
+    height : 100%;
+    overflow : hidden;
+}
+
+.pupil {
+    position : absolute;
+    left : 41%;
+    top : 41%;
+    width : 18%;
+    height : 18%;
+    border-radius : 50%;
+    background-color : black;
+    color : white;
+    text-align : center;
+    font-size : 2rem;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+}
+
+.skin {
+    width : 100%;
+    height : 100%;
+    border-radius : 50%;
+    border : 20px solid grey;
+}
+.lymph {
+    top : 2.5%;
+    left : 2.5%;
+    width : 95%;
+    height : 95%;
+    border-radius : 50%;
+    border : 20px solid #F0A18E;
+}
+
+.colar {
+    top : 32.5%;
+    left : 32.5%;
+    width : 35%;
+    height : 35%;
+    border-radius : 50%;
+    border : 50px solid #161FE0;
+}
+
+.stomac {
+    top : 39%;
+    left : 39%;
+    width : 22%;
+    height : 22%;
+    border-radius : 50%;
+    border : 15px solid yellow;
+}
+
+.transverse {
+    top : 32%;
+    left : 32%;
+    width : 25%;
+    height : 5%;
+    border-radius : 50%;
+    background-color : #B3945F;
+    transform : rotate(-18deg);
+}
+
+.ascending {
+    top : 38%;
+    left : 32%;
+    width : 5%;
+    height : 23%;
+    border-radius : 50%;
+    background-color : #B3945F;
+}
+
+.caecum {
+    top : 59%;
+    left : 36%;
+    width : 5%;
+    height : 10%;
+    border-radius : 50%;
+    background-color : #B3945F;
+    transform : rotate(-45deg);
+}
+
+.jejunum {
+    top : 37%;
+    right : 26%;
+    width : 22%;
+    height : 5%;
+    border-radius : 50%;
+    background-color : #B3945F;
+    transform : rotate(45deg);
+}
+
+.duodenum {
+    top : 45%;
+    right : 32%;
+    width : 5%;
+    height : 20%;
+    border-radius : 50%;
+    background-color : #B3945F;
+    transform : rotate(18deg);
+}
+
+.sigmoid {
+    top : 65%;
+    left : 41%;
+    width : 12%;
+    height : 5%;
+    border-radius : 50%;
+    background-color : #B3945F;
+    transform : rotate(12deg);
+}
+
+.ileon {
+    top : 64%;
+    right : 36%;
+    width : 13%;
+    height : 5%;
+    border-radius : 50%;
+    background-color : #B3945F;
+    transform : rotate(-22deg);
+}
+
+/*=============== ZONE DE 3H à 9H ================*/
+
+.lung {
+    width : 26%;
+    height : 30%;
+    left : 6%;
+    top : 30%;
+    border-radius : 30%;
+    background-color : #63D6E0;
+    transform : rotate(6deg);
+}
+
+.heart {
+    width : 5%;
+    height : 7%;
+    top : 50%;
+    left : 27%;
+    background-color : #E02F1D;
+    transform : rotate(-6deg);
+}
+
+.breast {
+    width : 5%;
+    height : 5%;
+    top : 55.5%;
+    left : 5.8%;
+    background-color : #7DD752;
+    transform : rotate(-6deg);
+}
+
+.liver {
+    width : 14%;
+    height : 14%;
+    top : 59%;
+    left : 9%;
+    border-radius : 30%;
+    background-color : #1B9632;
+    transform : rotate(-20deg);
+}
+
+.gallblader {
+    width : 12%;
+    height : 10%;
+    top : 57%;
+    left : 22.5%;
+    border-radius : 30%;
+    background-color : #1B9632;
+    transform : rotate(-20deg);
+}
+
+.hand {
+    width : 26%;
+    height : 4%;
+    top : 69.5%;
+    left : 13%;
+    transform : rotate(-35deg);
+}
+
+.adrenals1 {
+    width : 10%;
+    height : 4%;
+    top : 67%;
+    left : 34.5%;
+    background-color : #7DD752;
+    transform : rotate(28deg);
+}
+
+.kydney1 {
+    width : 11%;
+    height : 10%;
+    top : 69%;
+    left : 30%;
+    border-radius : 30%;
+    background-color : yellow;
+    transform : rotate(-43deg);
+}
+
+.bladder1 { 
+    width : 10.5%;
+    height : 14%;
+    top : 75%;
+    left : 22%;
+    border-radius : 30%;
+    background-color : yellow;
+    transform : rotate(-55deg);
+}
+
+.rectum {
+    width : 5%;
+    height : 13%;
+    top : 69%;
+    left : 40%;
+    background-color : #B3945F;
+    border-radius : 30%;
+    transform : rotate(24deg);
+}
+
+.rectum1 {
+    width : 9%;
+    height : 12%;
+    top : 80.5%;
+    left : 33%;
+    background-color : #B3945F;
+    border-radius : 30%;
+    transform : rotate(24deg);
+}
+
+.foot-leg {
+    width : 26%;
+    height : 4%;
+    top : 80%;
+    left : 38%;
+    transform : rotate(-90deg);
+}
+
+.genitals1 {
+    width : 3%;
+    height : 12%;
+    top : 70%;
+    left : 46%;
+    border-radius : 30%;
+    background-color : #D1695D;
+    transform : rotate(5deg);
+}
+.genitals1bis {
+    width : 6%;
+    height : 13%;
+    top : 81.5%;
+    left : 42%;
+    border-radius : 30%;
+    background-color : #D1695D;
+    transform : rotate(8deg);
+}
+
+.prostate1 {
+    width : 3%;
+    height : 9%;
+    top : 70%;
+    left : 44%;
+    border-radius : 30%;
+    background-color : #7DD752;
+    transform : rotate(8deg);
+}
+
+.adrenals2 {
+    width : 10%;
+    height : 4%;
+    top : 69%;
+    left : 52.5%;
+    background-color : #7DD752;
+    transform : rotate(-22deg);
+}
+
+.kydney2 {
+    width : 6%;
+    height : 10%;
+    top : 71%;
+    right : 38%;
+    border-radius : 30%;
+    background-color : yellow;
+    transform : rotate(70deg);
+}
+
+.bladder2 { 
+    width : 8.5%;
+    height : 17%;
+    top : 80%;
+    right : 33%;
+    border-radius : 30%;
+    background-color : yellow;
+    transform : rotate(72deg);
+}
+
+.bowl {
+    width : 4%;
+    height : 14%;
+    top : 74%;
+    right : 37%;
+    border-radius : 30%;
+    background-color : white;
+    transform : rotate(72deg);
+}
+
+.thymus {
+    width : 8%;
+    height : 4%;
+    top : 56%;
+    right : 27%;
+    background-color : #7DD752;
+    transform : rotate(-70deg);   
+}
+
+.ovaries-testicles {
+    width : 8%;
+    height : 4%;
+    top : 63%;
+    right : 31%;
+    background-color : #7DD752;
+    transform : rotate(-55deg);   
+}
+
+.spine {
+    width : 26%;
+    height : 4%;
+    top : 76%;
+    right : 18%;
+    color : black;
+    font-weight : bold; 
+    transform : rotate(63deg); 
+}
+
+.genitals2 {
+    width : 10%;
+    height : 16%;
+    top : 69%;
+    right : 16%;
+    border-radius : 30%;
+    background-color : #D1695D;
+    transform : rotate(45deg);
+}
+
+.genitals2bis {
+    width : 13%;
+    height : 8%;
+    top : 64%;
+    right : 20.5%;
+    border-radius : 30%;
+    background-color : #D1695D;
+    transform : rotate(45deg);
+}
+
+.prostate2 {
+    width : 4%;
+    height : 8%;
+    top : 66%;
+    right : 29%;
+    border-radius : 30%;
+    background-color : #7DD752;
+    transform : rotate(-36deg);    
+}
+
+.back-muscles {
+    width : 11%;
+    height : 20%;
+    top : 52%;
+    right : 13%;
+    border-radius : 30%;
+    background-color : white;
+    transform : rotate(-80deg);
+}
+
+.larynx {
+    width : 23%;
+    height : 15%;
+    top : 41%;
+    right : 5%;
+    background-color : #63D6E0;
+    border-radius : 30%;
+}
+
+.thyroid2 {
+    width : 6%;
+    height : 5%;
+    right : 5.5%;
+    top : 41%;
+    background-color : #7DD752;
+}
+
+.para-thyroid {
+    width : 4%;
+    height : 9%;
+    top : 44%;
+    right : 27%;
+    background-color : #7DD752;
+    transform : rotate(3deg);
+}
+
+/*=============== ZONE DE 9H à 3H ================*/
+
+.trachea {
+   width : 18%;
+   height : 4%;
+   left : 12%;
+   top : 26%;
+   background-color : #63D6E0;
+   transform : rotate(35deg);
+}
+
+.ext-ear {
+    width : 12%;
+    height : 18%;
+    top : 10%;
+    left : 20%;
+    background-color : #C9D1CC;
+    border-radius : 40%;
+    transform : rotate(50deg);
+}
+
+.int-ear {
+    width : 12%;
+    height : 13%;
+    top : 22%;
+    left : 28%;
+    background-color : #C9D1CC;
+    border-radius : 40%;
+    transform : rotate(50deg);
+}
+
+.occipital {
+    width : 10%;
+    height : 24%;
+    top : 6%;
+    left : 36%;
+    background-color : #C9D1CC;
+    border-radius : 40%;
+    transform : rotate(-15deg);
+}
+
+.thyroid1 {
+    width : 7%;
+    height : 5%;
+    top : 33%;
+    left : 28.5%;
+    background-color : #7DD752;
+    transform : rotate(-45deg);
+}
+
+.hypothalamus {
+    width : 10%;
+    height : 4%;
+    top : 29.5%;
+    left : 34.5%;
+    background-color : #7DD752;
+    transform : rotate(-20deg);
+}
+
+.brain {
+    width : 13%;
+    height : 23%;
+    top : 4%;
+    left : 44.5%;
+    background-color : #C9D1CC;
+    border-radius : 40%;
+}
+
+.cervical-vertebrae {
+    width : 10%;
+    height : 4%;
+    top : 27%;
+    left : 45%;
+    background-color : white;
+}
+
+.epiphisis {
+    width : 6%;
+    height : 4%;
+    top : 28%;
+    right : 40%;
+    background-color : #7DD752;
+    transform : rotate(20deg);
+}
+
+.pituytary {
+    width : 6%;
+    height : 4%;
+    top : 31%;
+    right : 35%;
+    background-color : #7DD752;
+    transform : rotate(35deg);    
+}
+
+.tonsils {
+    width : 4%;
+    height : 6%;
+    top : 39%;
+    right : 28%;
+    background-color : #63D6E0;
+    transform : rotate(-25deg);
+}
+
+.mouth-tongue {
+    width : 22%;
+    height : 11%;
+    top : 30%;
+    right : 6%;
+    background-color : #D67013;
+    border-radius : 50%;
+    transform : rotate(-25deg);
+}
+
+.nasopharynx {
+    width : 26%;
+    height : 9%;
+    top : 25%;
+    right : 12%;
+    background-color : #63D6E0;
+    border-radius : 50%;
+    transform : rotate(-35deg);
+}
+
+.eye {
+    width : 18%;
+    height : 8%;
+    top : 20%;
+    right : 23%;
+    background-color : #C9D1CC;
+    border-radius : 50%;
+    transform : rotate(-50deg);    
+}
+
+.temporal {
+    width : 12%;
+    height : 7%;
+    top : 19%;
+    right : 34%;
+    background-color : #C9D1CC;
+    border-radius : 50%;
+    transform : rotate(-65deg);    
+}
+
+.frontal {
+    width : 11%;
+    height : 9%;
+    top : 8.5%;
+    right : 29%;
+    background-color : #C9D1CC;
+    border-radius : 50%;
+    transform : rotate(-65deg);
+}
+
+.sinus {
+    width : 10%;
+    height : 5%;
+    top : 14%;
+    right : 20%;  
+    background-color : #63D6E0;
+    transform : rotate(40deg);
+}
+
+
+
+/*
+*
+********************************* - FOOTER - ***************************************
+*
+*/
+
+footer {
+    width : 90vw;
+    margin : 200px auto 0 auto;
+    padding : 30px 30px;
+    background-color : var(--headColor);
+    font-family : "Plus Jakarta Sans", sans-serif;
+    font-weight : bold;
+    color : var(--bgColor);
+    border : 3px solid var(--darkBrown);
+}
+
+footer section {
+    margin : 15px 0;
+}
+
+footer ul {
+    list-style : none;
+}
+
+.footTitle {
+    text-decoration : underline;
+}
+
+.footContainer {
+    display : flex;
+    flex-direction : column;
+    border : 2px solid var(--darkBrown);
+    padding : 30px;
+    font-size : 1.4rem;
+}
+
+.link {
+    text-decoration : none;
+    color : var(--bgColor);
+}
+
+.footLine {
+    width : 80%;
+    height : 2px;
+    background-color : var(--darkBrown);
+    margin : 100px auto;
+}
+
+
+
+/*====================== - --------- - =======================*/
+/*====================== - DASHBOARD - =======================*/
+/*====================== - --------- - =======================*/
+
+
+/*============== - DASHBOARD-GLOBAL - ===================*/
+
+
+.title2-admin {
+    color : var(--darkBrownAdmin);
+    font-size : 1.3rem;
+    margin : 20px auto;
+    text-align : center;
+    font-family : "Plus Jakarta Sans", sans-serif;
+}
+
+.container-admin {
+    position : absolute;
+    width : 70%;
+    left : 40px;
+    margin : 50px 20px;
+    font-family : sans-serif;
+    font-size : 1rem;
+    transition : all 0.5s ease;
+}
+
+.admin-link {
+    text-decoration : none;
+}
+
+.delete-link {
+    color : #E30C07;
+}
+
+.update-link {
+    color : #D9C70F;
+}
+
+.add-link {
+    color : #41B82A;
+}
+
+.sidebar{
+  position : fixed;
+  height : 100%;
+  width : 240px;
+  left : -200px;
+  background : var(--greenGlobal);
+  transition : all 0.5s ease;
+}
+
+.sidebar.active {
+    left : 0px;
+}
+
+.sidebarBtn {
+    position : absolute;
+    right : 5px;
+    top : 5px;
+    color : var(--darkBrown);
+    font-size : 2rem;
+}
+
+.bx-grid-alt {
+    position : absolute;
+    right : 5px;
+    top : 10px;
+    color : var(--darkBrown);
+    font-size : 2rem; 
+}
+
+.sidebar .nav-links{
+  margin-top : 40px;
+}
+.sidebar .nav-links li{
+  position : relative;
+  list-style : none;
+  height : 50px;
+}
+.sidebar .nav-links li a{
+  height : 100%;
+  width : 100%;
+  padding-left : 15px;
+  display : flex;
+  align-items : center;
+  text-decoration : none;
+  transition : all 0.4s ease;
+}
+.sidebar .nav-links li a.active{
+  background : #749456;
+}
+.sidebar .nav-links li a:hover{
+  background : #749456;
+}
+
+.sidebar .nav-links li a .links_name{
+  color : var(--bgColor);
+  font-size : 15px;
+  font-weight : normal;
+  white-space : nowrap;
+}
+
+.header-section{
+  position: relative;
+  padding : 25px 10px;
+  background : var(--greenGlobal);
+  width : calc(100% - 40px);
+  left : 40px;
+  transition: all 0.5s ease;
+  color : var(--bgColor);
+  transition : all 0.5s ease;
+}
+
+.sidebar.active + .header-section{ 
+  width : calc(100% - 240px);
+  left : 240px;
+}
+
+.sidebar.active + .header-section + .container-admin{ 
+  width : calc(100% - 240px);
+  left : 240px;
+}
+
+.sidebar.active + .header-section nav{
+  left : 240px;
+  width : calc(100% - 240px);
+}
+
+.admin-name {
+    color : var(--darkBrown);
+    font-weight : bold;
+}
+
+/*============== - DASHBOARD-MANAGE-PAGE - ===================*/
+
+.table-admin {
+    border : 1px solid var(--darkBrownAdmin);
+    background-color : #F2F7F7;
+}
+
+.table-admin td, th {
+    border : 1px solid var(--darkBrownAdmin);
+    padding : 5px 1px;
+}
+
+
+/*MODAL SUPPRESSION*/
+
+.confirm-modal {
+    display : none;
+    position : fixed;
+    width : 70%;
+    top : 15%;
+    left : 15%;
+    background-color : var(--bgColor);
+    border : 10px solid var(--greenGlobal);
+    border-radius : 25px;
+    padding : 20px 20px 0;
+    font-size : 1rem;
+    font-family : "Plus Jakarta Sans", sans-serif;
+    color : var(--darkBrown);    
+}
+
+.confirm-active {
+    display : block;
+}
+
+#close-btn {
+    width : 50px;
+    position : absolute;
+    top : -30px;
+    left : 215px;
+}
+
+.block-confirm-btn {
+    display : flex;
+    text-align : center;
+    justify-content : space-evenly;
+    margin : 20px;
+}
+
+.confirm-btn {
+    padding : 2px 5px;
+    margin : 10px;
+    font-size : 1rem;
+}
+
+
+
+/* Responsive Media Query */
+@media only screen and (max-width: 1240px) {
+    
+}
+
+@media only screen and (max-width: 1150px) {
+    
+}
+ 
+@media only screen and (max-width: 1000px) {
+    
+}
+
+@media only screen and (max-width: 700px) {
+    
+}
+ 
+@media only screen and (max-width: 550px) {
+    
+}
+
+@media only screen and (max-width: 400px) {
+    
+}

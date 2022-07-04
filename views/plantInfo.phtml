@@ -1,0 +1,54 @@
+<section class="container plantInfo">
+    
+    <p class="block-card-picture picture-plantinfo"><img class="card-picture" src="<?= $plant['url_small'] ?>" alt="<?= $plant['plant_name'] ?>"></p>
+    
+    <h2 class="title2-info"><?= $plant['plant_name'] ?></h2>
+    
+    <h3 class="title3-info"><?= $plant['plant_scientific_name'] ?></h3>
+    
+    <h4 class="title4-info"><?= $plant['family_name'] ?></h4>
+    
+    <h5 class="title5-info">Composition :</h5>
+    <p class="para-global"><?= $plant['plant_composition'] ?></p>
+    
+    <h5 class="title5-info">Description et origine :</h5>
+    <p class="para-global"><?= $plant['plant_origin_description'] ?></p>
+    
+    <h5 class="title5-info">Usages traditionels :</h5>
+    <p class="para-global"><?= $plant['plant_traditional_use'] ?></p>
+    
+    <h5 class="title5-info">Propriétés thérapeutiques :</h5>
+    <p class="para-global"><?= $plant['plant_properties_description'] ?></p>
+    
+    <?php if($plant['plant_internal_use'] !== null) : ?>
+    <h5 class="title5-info">Usages internes :</h5>
+    <p class="para-global"><?= $plant['plant_internal_use'] ?></p>
+    <?php endif; ?>
+   
+    
+    <?php if($plant['plant_external_use'] !== null) : ?>
+    <h5 class="title5-info">Usages externes :</h5>
+    <p class="para-global"><?= $plant['plant_external_use'] ?></p>
+    <?php endif; ?>
+    
+    <?php if($plant['plant_other_uses'] !== null) : ?>
+    <h5 class="title5-info">Autres usages :</h5>
+    <p class="para-global"><?= $plant['plant_other_uses'] ?></p>
+    <?php endif; ?>
+    
+    <?php if($plant['plant_toxicity'] !== null) : ?>
+    <h5 class="title5-info">Toxicité :</h5>
+    <p class="para-global"><?= $plant['plant_toxicity'] ?></p>
+    <?php endif; ?>
+    
+    <?php if($plant['plant_anecdote'] !== null) : ?>
+    <h5 class="title5-info">Le saviez vous ? :</h5>
+    <p class="para-global"><?= $plant['plant_anecdote'] ?></p>
+    <?php endif; ?>
+    
+    <?php if($plant['plant_specimens'] !== null) : ?>
+    <h5 class="title5-info">Autres specimens :</h5>
+    <p class="para-global"><?= $plant['plant_specimens'] ?></p>
+    <?php endif; ?>
+    
+</section>

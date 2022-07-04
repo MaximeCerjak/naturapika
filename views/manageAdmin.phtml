@@ -1,0 +1,107 @@
+<section class="container-admin">
+    
+    <h2 class="title2-admin">
+        <?php switch( $_GET['route'] ) : 
+                 case 'backoffPlant' : ?>
+                 Les plantes médicinales
+                <?php break; ?>
+                
+                <?php case 'backoffRecipe' : ?>
+                Les recettes du site
+                <?php break; ?>
+                
+                <?php case 'backoffUser' : ?>
+                Les utilisateurs
+                <?php break; ?>
+                
+        <?php endswitch; ?>    
+    </h2>
+    
+    <?php if( isset( $_GET['add'] ) && $_GET['add'] == true) : ?>
+        <div class="success">Votre recette a bien été ajoutée !</div>
+    <?php elseif( isset( $_GET['add'] ) && $_GET['add'] == false) : ?>
+        <div class="fail">Erreur lors de l'ajout, veuillez réessayer.</div>
+    <?php elseif( isset( $_GET['update'] ) && $_GET['update'] == true) : ?>
+        <div class="success">Mise à jour réussie !</div>
+    <?php elseif( isset( $_GET['deleted'] ) && $_GET['deleted'] == false) : ?>
+        <div class="fail">Une erreur s'est produite, veuillez réessayer.</div>
+    <?php elseif( isset( $_GET['deleted'] ) && $_GET['deleted'] == true) : ?>
+        <div class="success">Suppression effectuée avec succés.</div>    
+    <?php endif; ?>
+    
+    <div class="confirm-modal" id="confirm-modal">
+        <p>Souhaitez vous vraiment supprimer cette élément ?</br>
+        Vous ne pourrez pas revenir en arrière, toute suppression est définitive.</p>
+        <img src="public/images/site/croix2.png" alt="icone de fermeture croix claire sur fond vert" class="close-form" id="close-btn">
+        <div class="block-confirm-btn">
+            <button class="confirm-btn" id="valid-btn">Valider</button>
+            <button class="confirm-btn" id="cancel-btn">Annuler</button>
+            <input id="db-table" type="hidden" value="<?php switch( $_GET['route'] ) : 
+                                                  case 'backoffPlant' : ?>Plant<?php break; ?>
+                                            <?php case 'backoffRecipe' : ?>Recipe<?php break; ?>
+                                            <?php case 'backoffUser' : ?>User<?php break; ?>
+                                        <?php endswitch; ?>">
+        </div>
+    </div>
+    
+    <table class="table-admin">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Id</th>
+                <?php if( $_GET['route'] == "backoffPlant" ) : ?>
+                    <th>isActive</th>
+                    <th colspan="2"><a class="admin-link add-link" href="index.php?route=addPlantAdmin" title="formulaire d'ajout de plante">Ajouter</a></th>
+                <?php elseif( $_GET['route'] == "backoffRecipe" ) : ?>
+                    <th colspan="2"><a class="admin-link add-link" href="index.php?route=addRecipeAdmin" title="formulaire d'ajout de recette">Ajouter</a></th>
+                <?php endif; ?> 
+                
+            </tr>
+        </thead>
+        <tbody>
+                <?php switch( $_GET['route'] ) : 
+                 case 'backoffPlant' : ?>
+                 
+                    <?php foreach( $plants as $plant ) : ?>
+                        <tr>
+                            <td><?= $plant["plant_name"] ?></td>
+                            <td><?= $plant["plant_id"] ?></td>
+                            <td><?= $plant["isActive"]  ?></td>
+                            <td><a class="admin-link update-link" href="index.php?route=updatePlant&plantID=<?= $plant["plant_id"] ?>" title="éditer la plante">Edit</a></td>
+                            <td><button type="button" class="admin-link delete-link" value="<?= $plant['plant_id'] ?>">Sup.</button></td>
+                        </tr>    
+                    <?php endforeach; ?>
+                    
+                <?php break; ?>
+                
+                <?php case 'backoffRecipe' : ?>
+                
+                    <?php foreach( $recipes as $recipe ) : ?>
+                        <tr>
+                            <td><?= $recipe["recipe_name"] ?></td>
+                            <td><?= $recipe["recipe_id"] ?></td>
+                            <td><a class="admin-link update-link" href="index.php?route=updatePlant&plantID=<?= $recipe["recipe_id"] ?>" title="editer la recette">Edit</a></td>
+                            <td><button type="button" class="admin-link delete-link" value="<?= $recipe['recipe_id'] ?>">Supprimer</button></td>
+                        </tr>    
+                    <?php endforeach; ?>
+                    
+                <?php break; ?>
+                
+                <?php case 'backoffUser' : ?>
+                
+                    <?php foreach( $users as $user ) : ?>
+                        <tr>
+                            <td><?= $user["user_firstname"] ?> <?= $user["user_lastname"] ?></td>
+                            <td><?= $user["user_id"] ?></td>
+                            <td><button type="button" class="admin-link delete-link" value="<?= $user['user_id'] ?>">Supprimer</button></td>
+                        </tr>    
+                    <?php endforeach; ?>
+                    
+                <?php break; ?>
+                
+                <?php endswitch; ?>
+        </tbody>
+    </table>
+
+    
+</section>

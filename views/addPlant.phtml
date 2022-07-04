@@ -1,0 +1,141 @@
+<section class="<?php if( $_GET['route'] == "addPlantAdmin" || $_GET['route'] == "updatePlant") : ?>container-admin<?php else : ?>container global<?php endif; ?>">
+    
+    
+    
+    <?php if( isset( $_GET['file-size'] ) && $_GET['file-size'] == false) : ?>
+        <div class="fail">Erreur de format d'image, l'image n'est pas au format paysage ou elle dépase les 1mo</div>
+    <?php elseif( isset( $_GET['file-extension'] ) && $_GET['file-extension'] == false) : ?>
+        <div class="fail">Attention le format de votre image doit être en jpeg ou png.</div>
+    <?php elseif( isset( $_GET['add'] ) && $_GET['add'] == true) : ?>
+        <div class="success">L'ajout de votre plante a réussi !</div>
+    <?php endif; ?>
+    
+    
+    
+    <div class="<?php if( $_GET['route'] == "addPlantAdmin" || $_GET['route'] == "updatePlant" ) : ?>form-admin<?php else : ?>form<?php endif; ?>">
+        <form id="addplant-form" action="<?php if( $_GET['route'] == 'updatePlant' ) : ?>index.php?route=plantUp<?php else : ?>index.php?route=newPlant<?php endif; ?>" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>
+                    <?php if( $_GET['route'] == 'updatePlant' ) : ?>
+                        Modification de la plante
+                    <?php else : ?>
+                        Ajout de plante
+                    <?php endif; ?>
+                </legend>
+                <?php if( isset( $_GET['plantID'] ) ) : ?>
+                    <input type="hidden" name="plantID" value="<?= $_GET['plantID'] ?>">
+                <?php endif; ?>
+                <div class="error hidden" id="global-error">Veuillez renseignez les champs obligatoires indiqués par une astérisque<span class="asterix">*</span>!</div>
+                <div class="input-block">
+                    <label for="plant-name">Nom de la plante<span class="asterix">*</span>:</label>
+                    <input type="text" class="input" name="plant-name" id="plant-name" required <?php if( $_GET['route'] == "updatePlant" ) : ?> value="<?= $plant["plant_name"] ?>"<?php endif; ?>/>
+                </div>
+                
+                <div class="input-block">
+                    <label for="plant-sc-name">Nom scientifique<span class="asterix">*</span>:</label>
+                    <input type="text" class="input" name="plant-sc-name" id="plant-sc-name" <?php if( $_GET['route'] == "updatePlant" ) : ?> value="<?= $plant["plant_scientific_name"];?>"<?php endif; ?> required />
+                </div>
+                
+                <div class="input-block">
+                    <label for="family">Famille<span class="asterix">*</span>:</label>
+                    <select name="family" id="family" required>
+                        <option value="null">Choisir une famille...</option>
+                        <?php foreach( $families as $family ) : ?>
+                            <option value="<?= $family['family_id'] ?>">
+                                <?= $family['family_name']  ?>
+                            </option>
+                        <?php endforeach; ?>
+                        <?php if( $_GET['route'] == "updatePlant" ) : ?>
+                            <option value="<?= $plant["family_id"]?>" selected><?= $plant['family_name'] ?></option>
+                        <?php endif; ?>
+                    </select>
+                </div>
+                
+                <?php if( $_GET['route'] != 'updatePlant' ) : ?> 
+                    <div class="input-block">
+                        <label for="picture">Image de la plante</label>
+                        <div class="info-form">(Le format de l'image doit être de type paysage)</div>
+                        <input type="file" class="input" id="picture" name="picture"/>
+                    </div>
+                <?php endif; ?>    
+        
+                <div class="input-block">
+                    <label for="description">Origine et description<span class="asterix">*</span>:</label>
+                    <textarea id="description" name="description" class="txtarea input" id="description" required><?= $_GET['route'] === "updatePlant" ? $plant["plant_origin_description"] : ''?></textarea>
+                </div>
+                
+                <div class="input-block">
+                    <label for="composition">Composition<span class="asterix">*</span>:</label>
+                    <textarea id="composition" name="composition" class="txtarea input" id="composition" required><?= $_GET['route'] === "updatePlant" ? $plant["plant_composition"] : '' ?></textarea>
+                </div>
+                
+                <div class="input-block">
+                    <label for="trad-use">Usages traditionels<span class="asterix">*</span>:</label>
+                    <textarea id="trad-use" name="trad-use" class="txtarea input" id="trad-use" required><?= $_GET['route'] === "updatePlant" ? $plant["plant_traditional_use"] : '' ?></textarea>
+                </div>
+                
+                <div class="input-block">
+                    <label for="props">Description des propriétés<span class="asterix">*</span>:</label>
+                    <textarea id="props" name="props" class="txtarea input" id="props" required><?= $_GET['route'] === "updatePlant" ? $plant["plant_properties_description"] : '' ?></textarea>
+                </div>
+                
+                <div class="input-block">
+                    <label for="glob-prop">Propriétés principales<span class="asterix">*</span>:</label>
+                    <textarea id="glob-prop" name="glob-prop" class="txtarea input" id="glob-prop" required ><?= $_GET['route'] === "updatePlant" ? $plant["plant_globals_properties"] : '' ?></textarea>
+                </div>
+                
+                <div class="input-block">
+                    <label for="int-use">Usages internes</label>
+                    <textarea id="int-use" name="int-use" class="txtarea input" id="int-use"><?= $_GET['route'] === "updatePlant" ? $plant["plant_internal_use"] : '' ?></textarea>
+                </div>
+                
+                <div class="input-block">
+                    <label for="ext-use">Usages externes</label>
+                    <textarea id="ext-use" name="ext-use" class="txtarea input" id="ext-use"><?= $_GET['route'] == "updatePlant"  ? $plant["plant_external_use"] : '' ?></textarea>
+                </div>
+                
+                <div class="input-block">
+                    <label for="other-use">Autres usages</label>
+                    <textarea id="other-use" name="other-use" class="txtarea input" id="other-use"><?= $_GET['route'] == "updatePlant" ? $plant["plant_other_uses"] : '' ?></textarea>
+                </div>
+                
+                <div class="input-block">
+                    <label for="toxic">Toxicité</label>
+                    <textarea id="toxic" name="toxic" class="txtarea input" id="toxic"><?= $_GET['route'] == "updatePlant" ? $plant["plant_toxicity"] : '' ?></textarea>
+                </div>
+                
+                <div class="input-block">
+                    <label for="anecdote">Anecdote historique ou scientifique</label>
+                    <textarea id="anecdote" name="anecdote" class="txtarea input" id="anecdote"><?= $_GET['route'] == "updatePlant" ? $plant["plant_anecdote"] : '' ?></textarea>
+                </div>
+                
+                <div class="input-block">
+                    <label for="specimen">Autres specimens</label>
+                    <textarea id="specimen" name="specimen" class="txtarea input" id="specimen"><?= $_GET['route'] == "updatePlant" ? $plant["plant_specimens"] : '' ?></textarea>
+                </div>
+                <?php if( $_GET['route'] == "addPlantAdmin") : ?>
+                    <div class="input-block">
+                        <label for="isActive">Activé la fiche plante ?</label>
+                        <select name="isActive" id="isActive" required>
+                            <option value="null">...</option>
+                            <option value="0">Non</option>
+                            <option value="1">Oui</option>
+                        </select>
+                    </div>
+                <?php elseif( $_GET['route'] == "updatePlant" ) : ?>
+                    <div class="input-block">
+                        <label for="isActive">Activé la fiche plante ?</label>
+                        <select name="isActive" id="isActive" required>
+                            <option>...</option>
+                            <option value="0" <?= $plant['isActive'] == 0 ? 'selected' : '' ?>>Non</option>
+                            <option value="1" <?= $plant['isActive'] == 1 ? 'selected' : '' ?>>Oui</option>
+                        </select>
+                    </div>
+                <?php endif; ?>
+            </fieldset>
+            
+            <button type="submit" class="<?php if( isset( $_GET['route'] ) && $_GET['route'] == "addPlantAdmin" || $_GET['route'] == "updatePlant" ) : ?>confirm-btn<?php else : ?>btn-form<?php endif; ?>">Valider</button>
+        </form>
+    </div>
+    
+</section>

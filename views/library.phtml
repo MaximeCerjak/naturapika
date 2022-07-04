@@ -1,0 +1,37 @@
+<section class="medical-library">
+
+<div class="container carousel">
+    
+    <?php foreach($plants as $plant) : ?>
+        <?php if( $plant['isActive'] == 1) : ?>
+            <div class="card card-plant" id="card<?= $plant['plant_id'] ?>">
+                <p class="block-card-picture"><img class="card-picture" src="<?= $plant['url_small'] ?>" alt="<?= $plant['plant_name'] ?>"></p>
+                <h2 class="title-name"><?= $plant['plant_name'] ?></h2>
+                <h3 class="title-sc-name"><?= $plant['plant_scientific_name'] ?></h3>
+                <h3 class="title-sc-name"><?= $plant['family_name'] ?></h3>
+                <p><?= substr($plant['plant_globals_properties'], 0, 60) ?>...</p>
+                <p><?= substr($plant['plant_origin_description'], 0, 100) ?>...</p>
+                <button class="btn-card"><p><a href="index.php?route=plantInfo&plantID=<?= $plant['plant_id'] ?>" class="card-link" title="descriptif plante">En savoir plus</a></p></button>
+            </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+    
+    <div class="card card-intro">
+        <p>
+            Ici vous allez pouvoir découvrir des plantes médicinales sous forme de cartes, si vous désirez en apprendre plus cliquez sur le bouton en bas de la carte et vous serez redirigé vers la fiche compléte de la plante.
+        </p>
+        <p> Si vous souhaitez avoir une vue d'ensemble cliquez sur le lien de la galerie plus bas.</p>
+    </div>
+    
+    
+    <img src="public/images/site/icone-carousel.svg" alt="icone fléche de direction pour carousel" class="btn-arrow" id="arrow-left">
+    <img src="public/images/site/icone-carousel.svg" alt="icone fléche de direction pour carousel" class="btn-arrow" id="arrow-right">
+    
+    
+</div>
+
+<a href="index.php?route=plantGalery" class="galery-link" title="galerie photo des plantes">GALERIE</a>
+    <?php if( isset( $_SESSION['user'] ) ) : ?>
+        <a href="index.php?route=addPlant" class="galery-link" title="formulaire d'ajout de plante">Ajouter une plante</a>
+    <?php endif; ?>
+</section>

@@ -1,0 +1,127 @@
+<section class="container-admin">
+    
+    <div class="form-admin">
+        <form id="addRecipe-form" action="index.php?route=addNewRecipe" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Ajout de recette</legend>
+                <div class="error hidden" id="global-error">Veuillez renseignez les champs obligatoires indiqués par une astérisque<span class="asterix">*</span>!</div>
+                <div class="input-block">
+                    <label for="recipe-name">Nom de la recette<span class="asterix">*</span>:</label>
+                    <input type="text" class="input" name="recipe-name" id="recipe-name" required/>
+                </div>
+                
+                <div class="input-block">
+                    <label for="type">Type de recette<span class="asterix">*</span>:</label>
+                    <select name="type" id="type" required>
+                        <option>Choisir un type...</option>
+                        <?php foreach( $types as $type ) : ?>
+                            <option value="<?= $type['recipe_type_id'] ?>">
+                                <?= $type['recipe_type_name']  ?>
+                            </option>
+                        <?php endforeach; ?>  
+                    </select>
+                </div>
+                <div class="input-block">
+                    <label for="regime">Régime:<span class="asterix">*</span></label>
+                    <select name="regime" id="regime" required>
+                        <option>Choisir un régime...</option>
+                        <?php foreach( $regimes as $regime ) : ?>
+                            <option value="<?= $regime['recipe_regime_id'] ?>">
+                                <?= $regime['recipe_regime_name']  ?>
+                            </option>
+                        <?php endforeach; ?>  
+                    </select>
+                </div>
+                
+                <div class="input-block">
+                    <label for="difficulty">Difficulté de réalisation<span class="asterix">*</span>:</label>
+                    <select name="difficulty" id="difficulty" required>
+                        <option>Choisir une difficulté...</option>
+                        <option value="Facile">Facile</option>
+                        <option value="Moyen">Moyen</option>
+                        <option value="Difficile">Difficile</option>
+                    </select>
+                </div>
+                
+                <div class="input-block">
+                    <label for="price">Prix de la recette<span class="asterix">*</span>:</label>
+                    <select name="price" id="price" required>
+                        <option value="NULL">Choisir une catégorie de prix...</option>
+                        <option value="Bon marché">Bon marché</option>
+                        <option value="Abordable">Abordable</option>
+                        <option value="Honéreux">Honéreux</option>
+                    </select>
+                </div>
+                
+                <div class="input-block">
+                    <label for="allergen">Allergène(s) présent(s):</label>
+                    <div class="info-form">Pour une séléction multiple veuiller maintenir la touche, CTRL sur PC ou Command sur Mac, enfoncée.</div>
+                    <select multiple="yes" name="allergen" id="allergen" required>
+                        <option>Choisir le ou les allergènes contenu(s)...</option>
+                        <option value="Gluten">Gluten</option>
+                        <option value="Crustacés">Crustacés</option>
+                        <option value="Oeuf">Oeuf</option>
+                        <option value="Poisson">Poisson</option>
+                        <option value="Arachide">Arachide</option>
+                        <option value="Soja">Soja</option>
+                        <option value="Lait">Lait</option>
+                        <option value="Fruits à coques">Fruits à coques</option>
+                        <option value="Céleri">Céleri</option>
+                        <option value="Moutarde">Moutarde</option>
+                        <option value="Graines de sésame">Graines de sésame</option>
+                        <option value="Lupin">Lupin</option>
+                        <option value="Mollusques">Mollusques</option>
+                    </select>
+                </div>
+                
+                <div class="input-block">
+                    <label for="preparation-time">Temps de préparation (en minutes)<span class="asterix">*</span>:</label>
+                    <input type="number" class="input" name="preparation-time" id="preparation-time" required/>
+                </div>
+                
+                <div class="input-block">
+                    <label for="cook-time">Temps de cuisson (en minutes):</label>
+                    <input type="number" class="input" name="cook-time" value="0" id="cook-time"/>
+                </div>
+                
+                <div class="input-block">
+                    <label for="rest-time">Temps de repos (en minutes):</label>
+                    <input type="number" class="input" name="rest-time" value="0" id="rest-time">
+                </div>
+                 
+                <div class="input-block">
+                    <label for="picture">Image de la recette<span class="asterix">*</span></label>
+                    <div class="info-form">(Le format de l'image doit être de type paysage)</div>
+                    <input type="file" class="input" id="picture" name="picture" required/>
+                </div>
+        
+                <div class="input-block">
+                    <label for="description">Description de la recette<span class="asterix">*</span>:</label>
+                    <textarea id="description" name="description" class="txtarea input" id="description" required></textarea>
+                </div>
+                
+                <div class="input-block">
+                    <label for="ingredients">Ingredients<span class="asterix">*</span>:</label>
+                    <textarea id="ingredients" name="ingredients" class="txtarea input" id="ingredients" required></textarea>
+                </div>
+                
+                <div class="input-block">
+                    <label for="preparation">Preparation<span class="asterix">*</span>:</label>
+                    <textarea id="preparation" name="preparation" class="txtarea input" id="preparation" required></textarea>
+                </div>
+                
+                <div class="input-block">
+                    <label for="isActive">Activé la recette ?</label>
+                    <select name="isActive" id="isActive" required>
+                        <option>...</option>
+                        <option value="0">Non</option>
+                        <option value="1">Oui</option>
+                    </select>
+                </div>
+            </fieldset>
+            
+            <button type="submit" class="confirm-btn">Valider</button>
+        </form>
+    </div>
+    
+</section>

@@ -1,0 +1,53 @@
+
+    <div class="form-block" id="form-block-sign">
+        <img src="public/images/site/croix2.png" alt="icone de fermeture croix claire sur fond vert" class="close-form" id="close-form-sign">
+        <form id="form-sign" action="index.php?route=newAccount" method="post" enctype="multipart/form-data">
+            <div class="error hidden" id="global-error">
+                <img src="public/images/site/danger.png" alt="icone attention" class="danger-io">
+                Veuillez renseignez les champs obligatoires indiqués par une astérisque<span class="asterix">*</span>!</div>
+            <fieldset>
+                <legend>Création de compte</legend>
+                <div class="input-block">
+                    <label for="lastname">Nom<span class="asterix">*</span> :</label>
+                    <input class="input input-log" type="text" id="lastname" name="lastname" placeholder="Votre nom">
+                    <div class="error hidden">
+                        <img src="public/images/site/danger.png" alt="icone attention" class="danger-io">
+                        Votre nom doit comporter au minimum deux lettres. Les caractères spéciaux ne sont pas autorisés
+                    </div>
+                </div>
+                <div class="input-block">
+                    <label for="firstname">Prenom<span class="asterix">*</span> :</label>
+                    <input class="input input-log" type="text" id="firstname" name="firstname" placeholder="Votre prénom">
+                    <div class="error hidden">
+                        <img src="public/images/site/danger.png" alt="icone attention" class="danger-io">
+                        Votre prénom doit comporter au minimum deux lettres. Les caractères spéciaux ne sont pas autorisés.
+                    </div>
+                </div>
+                <div class="input-block">
+                    <label for="email">Email<span class="asterix">*</span> :</label>
+                    <input class="input input-log" type="email" id="email" name="email" placeholder="Votre email">
+                    <div class="error hidden">
+                        <img src="public/images/site/danger.png" alt="icone attention" class="danger-io">
+                        Vous devez respecter le format adresse@domaine.com
+                    </div>
+                </div>
+                <div class="input-block">
+                    <label for="password">Mot de passe<span class="asterix">*</span> :</label>
+                    <input class="input input-log" type="password" name="password" id="password">
+                    <div class="error hidden">
+                        <img src="public/images/site/danger.png" alt="icone attention" class="danger-io">
+                        Votre mot de passe doit contenir entre huit et vingt caractères, contenir au moins un chiffre, une majuscule, une minuscule et un caractère spécial(*.!@$%^&(){}[]).
+                    </div>
+                </div>
+                <div class="input-block">
+                    <label for="pass">Resaisir<span class="asterix">*</span>:</label>
+                    <input class="input input-log" type="password" name="pass" id="pass">
+                    <div class="error hidden">
+                        <img src="public/images/site/danger.png" alt="icone attention" class="danger-io">
+                        Les deux mots de passe ne sont pas identiques.
+                    </div>
+                </div>
+            </fieldset>
+            <button type="submit" class="btn-form">Valider</button>
+        </form>
+    </div>

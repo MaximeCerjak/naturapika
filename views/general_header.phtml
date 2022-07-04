@@ -1,0 +1,52 @@
+<header class="header home">
+    <section>
+       <h1>
+        <?php switch( $_GET['route'] ) {
+            case 'aboutMe' :
+                echo "&Agrave; propos</br>de moi";
+                break;
+            case 'aboutNaturo' :
+                echo "La</br>Naturopathie";
+                break;
+             case 'lifestyle' :
+                 echo "L'hygiène</br>de vie";
+                break;
+            case 'iridology' :
+                echo "L'iridologie</br>-";
+                break;
+            case 'library' :
+                echo "Bibliothéque</br>médicinale";
+                break;
+            case "plantGalery" :
+                echo "Galerie des</br>plantes";
+                break;
+            case "plantInfo" :
+                echo "Fiche</br>info";
+                break;    
+            case 'contact' :
+                 echo "Me contacter</br>-";
+                break;
+            case 'sendMessage' :
+                echo "Me contacter</br>-";
+                break;
+            case 'cg' :
+                 echo "Conditions générales d'utilisation";
+                break;
+            case 'dataProtect' :
+                 echo "Protection</br>des données";
+                break;
+            case 'cookiesInfos' :
+                 echo "Gestion</br>des cookies";
+                break;   
+            case 'addPlant' :
+                echo "Formulaire d'ajout de plantes";
+                break;
+         } ?>
+        </h1>
+        
+        <p><img class="globalHeader headFlowerGlobal" src="public/images/header/en-tête_site_bgT.svg" alt="banderolle d'en-tête, composition de plantes"></p>
+        
+        <div class="menuFlower" id="menuFlower"><img src="public/images/site/menu_flower_bg.svg" alt="une fleur dont les pétales se détachent du pistil, symbolisant les différentes parties du menu"></div>
+        <div class="flower" id="flower"><img id="domFlower" src="public/images/site/menu_flower.svg" alt="une fleur dont les pétales se détachent du pistil, symbolisant les différentes parties du menu"></div>
+    </section>
+</header>

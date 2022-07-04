@@ -1,0 +1,80 @@
+<section class="container global">
+    
+    
+    <div class="recipe-nav">
+        <nav>
+            <ul>
+                <div class="menu-option"><li class="type-regime entry">Entrées</li></div>
+                <div class="accord-option">
+                    <ul class="accord-ul">
+                        <?php foreach( $recipesList as $recipeList ) : ?>
+                            <?php if( $recipeList['recipe_type_name'] == "Entrée" && $recipeList['isActive'] == 1 ) : ?>
+                                <li><a href="index.php?route=recipeInfo&recipeID=<?= $recipeList['recipe_id'] ?>"><?= $recipeList['recipe_name'] ?></a></li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+                <div class="separator"></div>
+                <div class="menu-option"><li class="type-regime dishe">Plats</li></div>
+                <div class="accord-option">
+                    <ul class="accord-ul">
+                        <?php foreach( $recipesList as $recipeList ) : ?>
+                            <?php if( $recipeList['recipe_type_name'] == "Plat" && $recipeList['isActive'] == 1 ) : ?>
+                                <li><a href="index.php?route=recipeInfo&recipeID=<?= $recipeList['recipe_id'] ?>" title="descriptif recette"><?= $recipeList['recipe_name'] ?></a></li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+                <div class="separator"></div>
+                <div class="menu-option"><li class="type-regime smooth">Gourmandises</li></div>
+                <div class="accord-option">
+                    <ul class="accord-ul">
+                        <?php foreach( $recipesList as $recipeList ) : ?>
+                            <?php if( $recipeList['recipe_type_name'] == "Gourmandise" && $recipeList['isActive'] == 1 ) : ?>
+                                <li><a href="index.php?route=recipeInfo&recipeID=<?= $recipeList['recipe_id'] ?>" title="descriptif recette"><?= $recipeList['recipe_name'] ?></a></li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+                <div class="separator"></div>
+                <div class="menu-option"><li class="type-regime vegan">Végétal</li></div>
+                <div class="accord-option">
+                    <ul class="accord-ul">
+                        <?php foreach( $recipesList as $recipeList ) : ?>
+                
+                            <?php if( $recipeList['recipe_regime_name'] == "Vegan"  && $recipeList['isActive'] == 1 ) : ?>
+                                <li><a href="index.php?route=recipeInfo&recipeID=<?= $recipeList['recipe_id'] ?>" title="descriptif recette"><?= $recipeList['recipe_name'] ?></a></li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+                <div class="separator"></div>
+            </ul>
+        </nav>    
+    </div>
+    
+    <h2>Les dernières recettes ajoutées :</h2>
+    <p class="intro-food"> Nous sommes nombreux à vouloir manger équilibré et améliorer sa façon de se nourrir, et c'est tant mieux ! </br> Profitez des dernières recettes ajoutées au site !</p>
+    
+    <?php foreach( $recipes as $recipe ) : ?>
+    
+        <?php if( $recipe['isActive'] == 1 ) : ?>
+    
+            <div class="card card-recipe" id="<?= $recipe['recipe_id'] ?>">
+                <p class="block-card-picture"><img class="card-picture" src="<?= $recipe['url_recipe_picture'] ?>" alt="<?= $recipe['recipe_name'] ?>"></p>
+                <h2 class="title-name"><?= $recipe['recipe_name'] ?></h2>
+                <h3 class="type-name">- <?= $recipe['recipe_type_name'] ?> -</h3>
+                <?php if( $recipe['url_regime_icon'] != NULL ) : ?>
+                    <p class="regime-icon"><img class="regime-io" src="<?= $recipe['url_regime_icon'] ?>" alt="icone <?= $recipe['recipe_regime_name'] ?>"></p>
+                <?php endif; ?>
+                <p class="block-description"><?= $recipe['recipe_description']  ?></p>
+                <button class="btn-card"><a href="index.php?route=recipeInfo&recipeID=<?= $recipe['recipe_id'] ?>" class="card-link" title="descriptif recette">Découvrir la recette</a></button>
+            </div>
+        
+        <?php endif; ?>
+        
+    <?php endforeach; ?>
+    
+    <a href="index.php?route=plantInfo&recipeID=<?= $recipe['recipe_id'] ?>" class="card-link" title="descriptif recette">Découvrir la recette</a>
+    
+</section>

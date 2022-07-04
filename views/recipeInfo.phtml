@@ -1,0 +1,30 @@
+<section class="container global">
+    
+    <p class="block-card-picture picture-plantinfo"><img class="card-picture" src="<?= $recipe['url_recipe_picture'] ?>" alt="<?= $recipe['recipe_name'] ?>"></p>
+    
+    <h2 class="title2-info"><?= $recipe['recipe_name'] ?></h2>
+    
+    <h3 class="title3-info"><?= $recipe['recipe_type_name'] ?></h3>
+    <div class="block-info-recipe">
+        <p class="regime-icon"><img class="regime-io" src="<?= $recipe['url_regime_icon'] ?>" alt="<?= $recipe['recipe_regime_name'] ?>"></p>
+        <p>Temps de préparation : <?= $recipe['recipe_preparation_time'] ?> min</p>
+        <?php if( $recipe['recipe_cook_time'] != NULL ) : ?>
+            <p>Temps de cuisson : <?= $recipe['recipe_cook_time'] ?> min</p>
+        <?php endif; ?>
+        <?php if( $recipe['recipe_rest_time'] != NULL ) : ?>
+            <p>Temps de repos : <?= $recipe['recipe_rest_time'] ?> min</p>
+        <?php endif; ?>
+    </div>
+    
+    
+    
+    <p class="para-global"><?= $recipe['recipe_description'] ?></p>
+    
+    <h5 class="title5-info">Ingrédients :</h5>
+    <?= $recipe['recipe_ingredients'] ?>
+    
+    <h5 class="title5-info">Préparation :</h5>
+    <?= $recipe['recipe_preparation'] ?>
+    
+    
+</section>

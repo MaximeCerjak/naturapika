@@ -1,0 +1,60 @@
+#monId {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    article {
+        
+        border: 2px solid black;
+        
+        h2 {
+            color: red;
+        }
+        
+        div {
+            
+            color: #555;
+            
+            span {
+                font-style: italic;
+            }
+        }
+        
+        p {
+           
+        }
+        
+    }
+    
+}
+
+/* ------------------- */
+
+#monId {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#monId article {
+    border: 2px solid black;
+}
+
+#monId article h2 {
+    color: red;
+}
+
+#monId article div {
+    color: #555;
+}
+
+#monId article div span {
+    font-style: italic;
+}
+
+#monId article p {
+    margin: 16px 0;
+}

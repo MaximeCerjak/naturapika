@@ -1,0 +1,15 @@
+<section class="container galery">
+    
+    
+        <?php foreach($plants as $plant) : ?>
+            
+            
+            <p class="block-card-picture"><img class="card-picture" src="<?= $plant['url_small'] ?>" alt="<?= $plant['plant_name'] ?>"></p>
+            <a href="index.php?route=plantInfo&plantID=<?= $plant['plant_id'] ?>" class="plant-link" title="descriptif de la plante"><?= $plant['plant_name'] ?></a>
+            <p><?= $plant['family_name'] ?></p>
+            
+            
+        <?php endforeach; ?>
+    
+    
+</section>

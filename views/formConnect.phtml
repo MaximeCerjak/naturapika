@@ -1,0 +1,23 @@
+
+    <div class="form-block" id="form-block-log">
+        <img src="public/images/site/croix2.png" alt="icone de fermeture croix claire sur fond vert" class="close-form close-log" id="close-form-log">
+        <form id="form-log" action="index.php?route=connect" method="post" enctype="multipart/form-data">
+            <?php if( !isset( $_SESSION['user'] ) && !isset( $_SESSION['admin'] ) ) : ?>
+                <fieldset>
+                    <legend>Connexion</legend>
+                    <div class="input-block">
+                        <label for="email">Email<span class="asterix">*</span> :</label>
+                        <input class="input input-log" id="email-connect" type="email" name="email" placeholder="Votre email">
+                    </div>
+                    <div class="input-block">
+                        <label for="password">Mot de passe<span class="asterix">*</span> :</label>
+                        <input class="input input-log" type="password" name="password" id="password-connect">
+                    </div>
+                </fieldset>
+                <button type="submit" class="btn-form">Valider</button>
+                <div class="sign-in" id="sign-in">Créer un compte</div>
+            <?php else : ?>
+                <div class="disconnect"><a href="index.php?route=disconnect" title="déconnexion">Se déconnecter</a></div>
+            <?php endif; ?>
+        </form>
+    </div>

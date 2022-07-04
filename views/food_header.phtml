@@ -1,0 +1,24 @@
+<header class="header home">
+    <section>
+       <h1>
+        <?php switch( $_GET['route'] ) {
+            case 'aboutFood' :
+                echo "L'alimentation";
+                break;
+            case 'coinGourmand' :
+                echo "Le coin des Gourmands";
+                break;
+            case 'recipeInfo' : 
+                echo "La recette";
+                break;
+         } ?>
+        </h1>
+        
+        <p><img class="globalHeader headFruits" src="public/images/header/en-tête_alimentation_bgT.svg" alt="banderolle d'en-tête, composition de fruits"></p>
+        
+        <div class="menuFlower" id="menuFlower"><img src="public/images/site/menu_flower_bg.svg" alt="une fleur dont les pétales se détachent du pistil, symbolisant les différentes parties du menu"></div>
+        
+        <div class="flower" id="flower"><img id="domFlower" src="public/images/site/menu_flower.svg" alt="une fleur dont les pétales se détachent du pistil, symbolisant les différentes parties du menu"></div>
+        
+    </section>
+</header>

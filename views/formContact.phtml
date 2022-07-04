@@ -1,0 +1,36 @@
+<section class="container global">
+    
+    <div class="form">
+        <?php if( $this->failSend == true ) : ?>
+            <div class="error">Votre message n'a pas été envoyé...</div>
+        <?php elseif( $this->send == true ) : ?>
+            <p class="para-global">Votre message a bien été envoyé.</p>
+        <?php endif; ?>
+        <form action="index.php?route=sendMessage" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Formulaire de contact</legend>
+                <div class="input-block">  
+                    <label for="name">Nom/prénom:</label>
+                    <input class="input input-contact" type="text" id="input-name" name="name" placeholder="Votre nom et prénom">
+                </div>
+                
+                <div class="input-block">
+                    <label for="subject">Sujet:</label>
+                    <input class="input input-contact" type="text" id="subject" name="subject" placeholder="L'objet de votre message">
+                </div>
+                
+                <div class="input-block">
+                    <label for="email">Email:</label>
+                    <input class="input input-contact" id="email-contact" type="email" name="email" placeholder="Votre email">
+                </div>
+                
+                <div class="input-block">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" placeholder="Votre message" class="txtarea input"></textarea>
+                </div>
+            </fieldset>
+            <button type="submit" class="btn-form">Envoyer</button>
+        </form>
+    </div>
+
+</section>

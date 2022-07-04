@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naturapika</title>
+    <link rel="stylesheet" href="public/css/style.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Plus+Jakarta+Sans:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/images/site/leave_icon.png">
+</head>
+<body>
+    <?php include_once $headerView; ?>
+    
+    <main>
+        <div class="menuModal" id="menuModal">
+            <?php if( isset( $_SESSION['user'] ) || isset( $_SESSION['admin'] ) ) : ?>
+                <div class="exit-door"><a href="index.php?route=disconnect" class="exit-door"><img src="public/images/site/exit.png" alt="porte de sortie" class="exit-io"></a></div>
+            <?php endif; ?>
+            <ul>
+                <?php if( isset( $_SESSION['user'] ) ) : ?>
+                    <li class="welcome">Bonjour <?= $_SESSION['user']['user_firstname'] ?></li>
+                    <?php elseif( isset( $_SESSION['admin'] ) ) : ?>
+                    <li class="welcome">Bonjour admin <?= $_SESSION['admin']['user_firstname'] ?></li>
+                <?php endif; ?>
+                 <?php if( isset( $_SESSION['admin'] ) ) : ?>
+                    <li><a class="link" href="index.php?route=backoff">Gestion administrateur</a></li>
+                <?php endif; ?>
+                <li><a class="link" href="index.php?route=home" title="page d'acceuil">Accueil</a></li>
+                <li><a class="link" href="index.php?route=aboutMe" title="à propos de moi">&Agrave; propos de moi</a></li>
+                <li><a class="link" href="index.php?route=aboutNaturo" title="descriptif naturopathie">La naturopathie</a></li>
+                <li><a class="link" href="index.php?route=aboutFood" title="à propos de l'alimentation">L'alimentation</a></li>
+                <li><a class="link" href="index.php?route=lifestyle" title="à propos de l'hygiène de vie">L'hygiène de vie</a></li>
+                <li><a class="link" href="index.php?route=iridology" title="à propos de l'iridologie">L'iridologie</a></li>
+                <li><a class="link" href="index.php?route=library" title="descriptif de plantes médicinales">Bibliothèque médicinale</a></li>
+                <li><a class="link" href="index.php?route=coinGourmand" title="les recettes cuisine">Le coin des gourmands</a></li>
+                <li><a class="link" href="index.php?route=contact" title="formulaire de contact">Prise de contact</a></li>
+            </ul>
+        </div>
+        <?php include_once $view; ?>
+        <img class="fixedNav" src="public/images/site/navBG_860.svg" alt="barre de naviguation(home, contact/rdv, connexion)">
+        
+            <a href="index.php?route=home" title="page d'acceuil"><div class="homeRoute"></div></a>
+            <a href="index.php?route=contact" title="formulaire de contact"><div class="contactRoute"></div></a>
+            <div class="userRoute" id="btn-userRoute"></div>
+        
+        <?php include_once 'views/formSign.phtml'; ?>
+        <?php include_once 'views/formConnect.phtml'; ?>
+        
+    </main>
+    
+    <footer>
+        <div class="footContainer">
+            <section class="contactFooter">
+                <h3 class="footTitle">Coordonées :</h3>
+                <ul>
+                    <li>Manon Rigaud</li>
+                    <li>23 rue de verdun</li> 
+                    <li>85300 Sallertaine</li>
+                    <li>manon.rigaud@naturamail.com</li>
+                    <li>07.68.45.67.29</li>
+                </ul>    
+            </section>
+
+            <section class="summarry">
+                <h3 class="footTitle">Plan du site :</h3>
+                <ul>
+                    <li><a class="link" href="index.php?route=home" title="page d'acceuil">Accueil</a></li>
+                    <li><a class="link" href="index.php?route=aboutMe" title="à propos de moi">&Agrave; propos de moi</a></li>
+                    <li><a class="link" href="index.php?route=aboutNaturo" title="descriptif naturopathie">La naturopathie</a></li>
+                    <li><a class="link" href="index.php?route=aboutFood" title="à propos de l'alimentation">L'alimentation</a></li>
+                    <li><a class="link" href="index.php?route=lifestyle" title="à propos de l'hygiène de vie">L'hygiène de vie</a></li>
+                    <li><a class="link" href="index.php?route=iridology" title="à propos de l'iridologie">L'iridologie</a></li>
+                    <li><a class="link" href="index.php?route=library" title="descriptif de plantes médicinales">Bibliothèque médicinale</a></li>
+                    <li><a class="link" href="index.php?route=coinGourmand" title="les recettes cuisine">Le coin des gourmands</a></li>
+                    <li><a class="link" href="index.php?route=contact" title="formulaire de contact">Prise de contact</a></li>
+                </ul>
+            </section>
+            
+            <section class="legal">
+                <h3 class="footTitle">Mentions légales</h3>
+                <ul>
+                    <li><a class="link" href="index.php?route=cg" title="conditions générales">Conditions générales</a></li>
+                    
+                    <li><a class="link" href="index.php?route=dataProtect" title="protection des données">Protection des données</a></li>
+                    
+                    <li><a class="link" href="index.php?route=cookiesInfos" title="gestion des cookies">Gestion des cookies</a></li>
+                </ul>
+            </section>
+            
+            <div class="footLine"></div>
+        </div>
+    </footer>
+    
+    <script src="public/js/apps/connectBtn.js"></script>
+    <script src="public/js/validator/signValidator.js"></script>
+     <?php if( $_GET['route'] == "library" ) : ?>
+         <script src="public/js/apps/libraryCarousel.js"></script>
+     <?php endif; ?>
+     <?php if( $_GET['route'] == "iridology" ) : ?>
+         <script src="public/js/apps/irisInteraction.js"></script>
+     <?php endif; ?>
+     <?php if( $_GET['route'] == "addPlant" ) : ?>
+         <script src="public/js/apps/addPlantFormValidator.js"></script>
+     <?php endif; ?>
+     <?php if( $_GET['route'] == "coinGourmand" ) : ?>
+         <script src="public/js/apps/accordeon.js"></script>
+     <?php endif; ?>
+</body>
+</html>
